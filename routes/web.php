@@ -1,8 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SystemController;
+=======
+use App\Http\Controllers\TestController;
+>>>>>>> practise with routes|controllers|views
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +20,10 @@ use App\Http\Controllers\SystemController;
 */
 
 Route::get('/', function () {
+    dd(request());
     return view('welcome');
 });
+<<<<<<< HEAD
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -27,3 +33,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::get('/', [App\Http\Controllers\Admin\TestController::class, 'index'])->name('admin');
 });
+=======
+Route::get('user/{id}', [TestController::class, 'user']);
+>>>>>>> practise with routes|controllers|views
