@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\TestDbController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +16,5 @@ use App\Http\Controllers\TestController;
 |
 */
 
-Route::get('/', function () {
-    dd(request());
-    return view('welcome');
-});
+Route::get('test', [TestDbController::class, 'index']);
 Route::get('user/{id}', [TestController::class, 'user']);
