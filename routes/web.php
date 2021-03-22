@@ -6,7 +6,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SystemController;
 =======
 use App\Http\Controllers\TestController;
+<<<<<<< HEAD
 >>>>>>> practise with routes|controllers|views
+=======
+use App\Http\Controllers\TestDbController;
+
+>>>>>>> Миграции, механизм миграций. Конструктор запросов. Seeder
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +24,7 @@ use App\Http\Controllers\TestController;
 |
 */
 
+<<<<<<< HEAD
 Route::get('/', function () {
     dd(request());
     return view('welcome');
@@ -34,5 +40,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', [App\Http\Controllers\Admin\TestController::class, 'index'])->name('admin');
 });
 =======
+=======
+Route::get('test', [TestDbController::class, 'index']);
+>>>>>>> Миграции, механизм миграций. Конструктор запросов. Seeder
 Route::get('user/{id}', [TestController::class, 'user']);
 >>>>>>> practise with routes|controllers|views
