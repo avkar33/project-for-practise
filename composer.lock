@@ -5,10 +5,14 @@
         "This file is @generated automatically"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "57825d0ef906bce162e6bb5113b7285d",
 =======
     "content-hash": "fc3d5f8fcf898d264d3f0b808f3cb632",
 >>>>>>> practise with routes|controllers|views
+=======
+    "content-hash": "57825d0ef906bce162e6bb5113b7285d",
+>>>>>>> Модели Eloquent. Scope, Мутаторы, Carbon. Представления
     "packages": [
         {
             "name": "asm89/stack-cors",
