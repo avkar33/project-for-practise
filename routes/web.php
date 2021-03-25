@@ -5,6 +5,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\TestDbController;
 use App\Http\Controllers\NamesController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +32,9 @@ Route::get('posts', [PostsController::class, 'index']);
 Route::get('posts/create', [PostsController::class, 'create']);
 Route::get('posts/{post}/delete', [PostsController::class, 'destroy']);
 
+Route::get('users', [UsersController::class, 'index'])->name('users.index');
+Route::get('users/create', [UsersController::class, 'create'])->name('users.create');
+Route::post('users/store', [UsersController::class, 'store'])->name('users.store');
+
+
 Route::get('test', [TestDbController::class, 'index']);
-Route::get('user/{id}', [TestController::class, 'user']);

@@ -9,6 +9,6 @@ class TestController extends Controller
 {
     public function user($id)
     {
-        return view('user', ['id' => $id]);
+        return view('user.show', ['id' => $id]);
     }
 }
