@@ -26,7 +26,7 @@ class AddAgeInNamesTable extends Migration
     public function down()
     {
         Schema::table('names', function (Blueprint $table) {
-            //
+            $table->dropColumn('age');
         });
     }
 }
