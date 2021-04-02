@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,6 @@ Route::get('/countrys', [CountryController::class, 'index']);
 
 Route::get('/countrys/{countryId}', [CountryController::class, 'show']);
 
+Route::get('/comments', [CommentController::class, 'index']);
+
+Route::get('/videos/{id}/comments', [CommentController::class, 'videoComments']);
