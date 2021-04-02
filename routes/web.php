@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\CountryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,9 @@ Route::get('/users/{userId}/show', [UserController::class, 'show']);
 Route::get('/posts/{postId}', [PostController::class, 'show'])->name('post.show');
 
 Route::get('/role/{roleId}', [RoleController::class, 'show'])->name('role.show');
+
+
+Route::get('/countrys', [CountryController::class, 'index']);
+
+Route::get('/countrys/{countryId}', [CountryController::class, 'show']);
+
