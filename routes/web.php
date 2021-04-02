@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,9 @@ Route::get('/countrys/{countryId}', [CountryController::class, 'show']);
 Route::get('/comments', [CommentController::class, 'index']);
 
 Route::get('/videos/{id}/comments', [CommentController::class, 'videoComments']);
+
+Route::get('/tags', [TagController::class, 'index']);
+
+Route::get('/add_tag/{tagId}/{id}/{type}', [TagController::class, 'addTag']);
+
+Route::get('/show_tags/{id}/{type}', [TagController::class, 'showTags']);
