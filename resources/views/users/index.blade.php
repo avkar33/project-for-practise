@@ -14,8 +14,6 @@
             <tr>
                 <th>Имя</th>
                 <th>Эмаил</th>
-                <th>Аватар</th>
-                <th>Посты</th>
             </tr>
         </thead>
         <tbody>
@@ -23,22 +21,7 @@
                 <tr>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->avatar->avatar ?? '' }}</td>
-                    <td>
-                        @forelse ($user->posts as $post)
-                            <a href="{{ route('post.show', $post) }}">{{ $post->title }}</a> /
-                        @empty
-                            Нет постов
-            @endforelse
-            </td>
-            <td>
-                @forelse ($user->roles as $role)
-                    <a href="{{route('role.show', $role)}}">{{ $role->role }}</a> /
-                @empty
-                    Нет ролей
-                @endforelse
-            </td>
-            </tr>
+                    <td><a href="{{route('user.edit', $user->id)}}">Редактировать</a></td>
             @endforeach
         </tbody>
     </table>

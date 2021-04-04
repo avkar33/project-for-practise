@@ -2,31 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use App\Models\Avatar;
-use App\Models\Post;
-use App\Models\Role;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
-    use HasFactory, Notifiable;
+    use HasFactory;
 
-
-    public function avatar()
-    {
-        return $this->hasOne(Avatar::class);
-    }
-
-    public function posts()
-    {
-        return $this->hasMany(Post::class);
-    }
-
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class);
-    }
+    protected $fillable = ['name', 'email', 'password'];
 }

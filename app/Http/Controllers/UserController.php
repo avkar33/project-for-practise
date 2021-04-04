@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\Avatar;
 
 class UserController extends Controller
 {
@@ -15,7 +14,6 @@ class UserController extends Controller
      */
     public function index()
     {
-
         return view('users.index', ['users' => User::get()]);
     }
 
@@ -26,7 +24,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -37,7 +35,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        User::create($request->all());
+
+        return redirect()->route('user.index');
     }
 
     /**
@@ -46,10 +46,9 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user, $userId)
+    public function show(User $user)
     {
-        $user = User::find($userId)->first();
-        dd($user->avatar);
+        return $user;
     }
 
     /**
@@ -60,7 +59,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('users.edit', ['user' => $user]);
     }
 
     /**
@@ -72,7 +71,8 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user->update($request->all());
+        return redirect()->route('user.index');
     }
 
     /**
