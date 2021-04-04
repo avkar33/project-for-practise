@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SystemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +18,7 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('/locale/{locale}', [SystemController::class, 'changeLocale'])->name('change_locale');
 
 Route::resource('/user', UserController::class)->except(['delete']);
