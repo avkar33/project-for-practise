@@ -19,6 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/locale/{locale}', [SystemController::class, 'changeLocale'])->name('change_locale');
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('/user', UserController::class)->except(['delete']);
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+
+    Route::get('/', [App\Http\Controllers\Admin\TestController::class, 'index'])->name('admin');
+});
