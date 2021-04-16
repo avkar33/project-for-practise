@@ -23,6 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        session(['schema' => 'dark', 'forget' => 'true']);
+        session()->forget('forget');
+        dd(session()->all());
     }
 }
