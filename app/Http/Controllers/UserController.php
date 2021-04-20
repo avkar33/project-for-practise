@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class UserController extends Controller
 {
@@ -14,7 +15,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        dd(User::all());
+        App::setLocale('ru');
+        $users = User::paginate(3);
+
+        return view('users.index', [
+            'users' => $users
+        ]);
+    }
+
+    public function json()
+    {
+        return User::all()->toJson();
     }
 
     public function deletedUsers()

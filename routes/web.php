@@ -20,6 +20,9 @@ Route::get('/', function () {
 
 Route::get('/users', [UserController::class, 'index']);
 
+Route::get('/users/json', [UserController::class, 'json']);
+
+
 Route::get('/restore/{userId}', [UserController::class, 'restore'])->name('users.restore');
 
 Route::get('/deleted_users', [UserController::class, 'deletedUsers'])->name('users.deleted');
