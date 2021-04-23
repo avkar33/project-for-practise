@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,5 @@ Route::get('/deleted_users', [UserController::class, 'deletedUsers'])->name('use
 Route::get('/create', [UserController::class, 'create']);
 
 Route::get('/delete', [UserController::class, 'destroy']);
+
+Route::get('/test_log', [TestController::class, 'testLog']);
