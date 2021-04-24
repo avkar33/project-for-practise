@@ -1,3 +1,3 @@
 Текст:
 
-{{$massage}}
+{{ $content }}

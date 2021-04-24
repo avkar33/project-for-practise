@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\JobController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,7 @@ Route::get('/delete', [UserController::class, 'destroy']);
 Route::get('/test_log', [TestController::class, 'testLog']);
 
 Route::get('/test_email', [TestController::class, 'testEmail']);
+
+Route::get('/set_job/{user}', [JobController::class, 'setJob']);
+
+Route::get('/send_email', [JobController::class, 'sendEmail']);

@@ -37,7 +37,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single', 'daily'],
+            'channels' => ['single'],
             'ignore_exceptions' => false,
         ],
 
@@ -100,6 +100,16 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+        'jobs_test' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/jobs_test.log'),
+            'level' => 'debug',
+        ],
+        'emails' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/jobs_emails.log'),
+            'level' => 'debug',
+        ]
     ],
 
 ];

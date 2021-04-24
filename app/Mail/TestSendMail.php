@@ -11,15 +11,15 @@ class TestSendMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $massage;
+    public $text;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($massage)
+    public function __construct($text)
     {
-        $this->massage = $massage;
+        $this->text = $text;
     }
 
     /**
@@ -30,6 +30,6 @@ class TestSendMail extends Mailable
     public function build()
     {
         $fromMail = config('mail.from.address');
-        return $this->from($fromMail)->view('email');
+        return $this->from($fromMail)->view('email', ['content' => $this->text]);
     }
 }
