@@ -33,3 +33,5 @@ Route::get('/create', [UserController::class, 'create']);
 Route::get('/delete', [UserController::class, 'destroy']);
 
 Route::get('/test_log', [TestController::class, 'testLog']);
+
+Route::get('/test_email', [TestController::class, 'testEmail']);
