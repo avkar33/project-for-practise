@@ -10,6 +10,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
 use App\Models\User;
+use App\Events\SendingEmail;
 
 class TestJob implements ShouldQueue
 {
@@ -34,6 +35,7 @@ class TestJob implements ShouldQueue
      */
     public function handle()
     {
+        event(new SendingEmail($this->user));
         Log::channel('jobs_test')->alert("Job started, user email: {$this->user->email}");
     }
 }
