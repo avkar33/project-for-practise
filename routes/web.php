@@ -40,3 +40,7 @@ Route::get('/test_email', [TestController::class, 'testEmail']);
 Route::get('/set_job/{user}', [JobController::class, 'setJob']);
 
 Route::get('/send_email', [JobController::class, 'sendEmail']);
+
+Route::get('/cache_test', [TestController::class, 'index']);
+
+Route::get('/cache_put', [TestController::class, 'cachePut']);

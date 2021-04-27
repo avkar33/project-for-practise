@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TestSendMail;
+use Illuminate\Support\Facades\Cache;
 
 class TestController extends Controller
 {
@@ -21,5 +22,19 @@ class TestController extends Controller
         $email = $request->email;
 
         Mail::to($email)->send(new TestSendMail($sending));
+    }
+
+    public function index()
+    {
+        $value = Cache::get('key', 'default');
+        dd($value);
+    }
+
+    public function cachePut(Request $request)
+    {
+        $expireAt = now()->addMinute(10);
+        foreach ($request->all() as $key => $value) {
+            Cache::put($key, $value, $expireAt);
+        }
     }
 }
