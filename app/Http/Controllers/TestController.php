@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TestSendMail;
 use Illuminate\Support\Facades\Cache;
+use App\Services\MoneyFormatter;
 
 class TestController extends Controller
 {
@@ -36,5 +37,12 @@ class TestController extends Controller
         foreach ($request->all() as $key => $value) {
             Cache::put($key, $value, $expireAt);
         }
+    }
+
+    public function product(Request $request)
+    {
+        $value = $request->money ?? 0;
+        $formatter = new MoneyFormatter($value);
+        dump($formatter->formatted());
     }
 }
