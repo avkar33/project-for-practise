@@ -47,7 +47,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        User::create(['name' => 'nameasdsad', 'email' => 'emailasdasd', 'password' => 'asdasf123']);
+        // User::create(['name' => 'nameasdsad', 'email' => 'emailasdasd', 'password' => 'asdasf123']);
+        User::factory()->count(2)->create();
         dd(User::all());
     }
 
